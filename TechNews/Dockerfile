@@ -21,6 +21,7 @@ RUN addgroup --system django \
 
 # Requirements are installed here to ensure they will be cached.
 COPY ./requirements.txt /requirements.txt
+RUN pip install --upgrade pip
 RUN pip install -r /requirements.txt
 
 # Copy project code
@@ -35,4 +36,4 @@ RUN adduser user
 USER user
 
 # Run application
-CMD gunicorn truq.wsgi:application
+CMD gunicorn TechNews.wsgi:application
